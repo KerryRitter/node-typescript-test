@@ -21,6 +21,10 @@ var scriptConfig = {
     project: ts.createProject("./tsconfig.json")
 };
 
+gulp.task("copy:ejs", function() {
+    gulp.src(['./server/views/**/*']).pipe(gulp.dest('./dist/views/'));
+});
+
 gulp.task("lint:ts", function () {
     return gulp
         .src(scriptConfig.server.input)
@@ -34,15 +38,16 @@ gulp.task("compile:ts", ["lint:ts"], function () {
     return scriptConfig.project.src()
 	    .pipe(ts(scriptConfig.project))
         .js
-        .pipe(gulp.dest(scriptConfig.server.base));
+        .pipe(gulp.dest(scriptConfig.server.base))
+        .pipe(livereload());
 });
 
 gulp.task("watch:ts", function () {
     livereload.listen();
-    gulp.watch(scriptConfig.server.input, ["serve"]);
+    gulp.watch(scriptConfig.server.input, ["compile:ts"]);
 });
 
-gulp.task("serve", ["compile:ts"], function () {
+gulp.task("serve", ["watch:ts"], function () {
     nodemon({
         script: "dist/server.js",
         ext: "js",

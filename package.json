@@ -3,7 +3,11 @@
     "body-parser": "^1.15.1",
     "express": "^4.14.0",
     "giuseppe": "^1.0.0-rc.1",
-    "typings": "^1.0.4"
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "sequelize": "^3.23.3",
+    "typings": "^1.0.4",
+    "vash": "^0.12.1"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
