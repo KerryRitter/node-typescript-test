@@ -1,11 +1,15 @@
 {
   "dependencies": {
     "body-parser": "^1.15.1",
+    "es6-shim": "^0.35.1",
     "express": "^4.14.0",
     "giuseppe": "^1.0.0-rc.1",
+    "mysql": "^2.11.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "reflect-metadata": "^0.1.3",
     "sequelize": "^3.23.3",
+    "typeorm": "0.0.1",
     "typings": "^1.0.4",
     "vash": "^0.12.1"
   },
