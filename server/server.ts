@@ -1,7 +1,6 @@
 "use strict";
 
 import {registerControllers} from '../node_modules/giuseppe/index';
-import {DatabaseConnection} from "./data/databaseConnection";
 import express = require('express');
 
 import "./controllers";
@@ -16,8 +15,6 @@ app.use(require('body-parser').json());
 
 app.use(registerControllers('/'));
 
-DatabaseConnection.instance.sync().then(() => {
-    app.listen(8080, () => {
-        console.log('Up and running on port 8080');
-    });
+app.listen(8080, () => {
+    console.log('Up and running on port 8080');
 });
