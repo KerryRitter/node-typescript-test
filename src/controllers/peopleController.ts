@@ -1,16 +1,16 @@
-import { Controller, Get } from 'inversify-express-utils';
-import { injectable, inject } from 'inversify';
-import { PeopleService } from '../services/peopleService';
+import { Controller, Get } from "inversify-express-utils";
+import { injectable, inject } from "inversify";
+import { PeopleService } from "../data/services";
 
 @injectable()
-@Controller('/')
+@Controller("/api/people/")
 export class PeopleController {
     public constructor(
         @inject("PeopleService") private _peopleService: PeopleService
     ) {
     }
 
-    @Get('/')
+    @Get("/")
     public get(): any[] {
         return this._peopleService.getAll();
     }
