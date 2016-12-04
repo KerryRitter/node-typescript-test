@@ -5,6 +5,11 @@ import * as bodyParser from "body-parser";
 import * as path from "path";
 import * as AuthServices from "./infrastructure/auth";
 
+import "./data/services";
+import "./infrastructure/auth";
+import "./infrastructure/dataAccess";
+import "./controllers";
+
 const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {

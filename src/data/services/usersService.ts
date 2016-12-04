@@ -7,7 +7,7 @@ import "reflect-metadata";
 @provide(UsersService)
 export class UsersService {
     public constructor(
-        @inject("ConnectionFactory") private _connectionFactory: ConnectionFactory
+        private _connectionFactory: ConnectionFactory
     ) {
     }
 

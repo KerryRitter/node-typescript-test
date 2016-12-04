@@ -1,13 +1,14 @@
-import { Controller, Get } from "inversify-express-utils";
+import { Controller, Get, TYPE } from "inversify-express-utils";
 import { injectable, inject } from "inversify";
 import { UsersService } from "../data/services";
 import { AuthService } from "../infrastructure/auth";
+import { provideFluent } from "../infrastructure/container";
 
-@injectable()
-@Controller("/api/users/", AuthService.authenticate())
+@provideFluent(TYPE.Controller).whenTargetNamed("UsersController").done()
+@Controller("/api/users/")
 export class UsersController {
     public constructor(
-        @inject("UsersService") private _usersService: UsersService
+        private _usersService: UsersService
     ) {
     }
 
