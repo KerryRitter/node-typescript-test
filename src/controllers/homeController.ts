@@ -1,8 +1,8 @@
 import * as express from "express";
 import { Controller, Get, TYPE } from "inversify-express-utils";
-import { provideNamed } from "../infrastructure/ioc";
+import { provideController } from "../infrastructure/ioc";
 
-@provideNamed(TYPE.Controller, "HomeController")
+@provideController("HomeController")
 @Controller("/")
 export class HomeController {
     public constructor(

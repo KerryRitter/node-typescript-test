@@ -14,4 +14,8 @@ let provideNamed = function(identifier, name) {
               .done();
 };
 
-export { kernel, autoProvide, provide, provideNamed, inject };
+let provideController = function(name) {
+    return provideNamed(TYPE.Controller, name);
+};
+
+export { kernel, autoProvide, provide, provideController, inject };

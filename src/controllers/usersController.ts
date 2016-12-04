@@ -1,9 +1,9 @@
 import { Controller, Get, TYPE } from "inversify-express-utils";
 import { UsersService } from "../data/services";
 import { AuthService } from "../infrastructure/auth";
-import { provideNamed } from "../infrastructure/ioc";
+import { provideController } from "../infrastructure/ioc";
 
-@provideNamed(TYPE.Controller, "UsersController")
+@provideController("UsersController")
 @Controller("/api/users/")
 export class UsersController {
     public constructor(
