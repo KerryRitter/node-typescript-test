@@ -1,8 +1,8 @@
 import * as mysql from "mysql";
 import { Config } from "../../config";
-import { provide } from "../container";
+import { provide } from "../ioc";
 import "reflect-metadata";
-console.log(provide);
+
 @provide(ConnectionFactory)
 export class ConnectionFactory {
     private _pool =  mysql.createPool(Config.database);

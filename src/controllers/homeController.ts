@@ -1,9 +1,8 @@
 import * as express from "express";
 import { Controller, Get, TYPE } from "inversify-express-utils";
-import { injectable, inject } from "inversify";
-import { provideFluent } from "../infrastructure/container";
+import { provideNamed } from "../infrastructure/ioc";
 
-@provideFluent(TYPE.Controller).whenTargetNamed("HomeController").done()
+@provideNamed(TYPE.Controller, "HomeController")
 @Controller("/")
 export class HomeController {
     public constructor(

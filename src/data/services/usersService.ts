@@ -1,7 +1,7 @@
 import { injectable, inject } from "inversify";
 import { ConnectionFactory } from "../../infrastructure/dataAccess";
 import { User } from "../models";
-import { provide } from "../../infrastructure/container";
+import { provide } from "../../infrastructure/ioc";
 import "reflect-metadata";
 
 @provide(UsersService)

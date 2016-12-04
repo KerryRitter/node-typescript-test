@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { InversifyExpressServer } from "inversify-express-utils";
-import { container } from "./infrastructure/container";
+import { kernel } from "./infrastructure/ioc";
 import * as bodyParser from "body-parser";
 import * as path from "path";
 import * as AuthServices from "./infrastructure/auth";
@@ -10,7 +10,7 @@ import "./infrastructure/auth";
 import "./infrastructure/dataAccess";
 import "./controllers";
 
-const server = new InversifyExpressServer(container);
+const server = new InversifyExpressServer(kernel);
 
 server.setConfig((app) => {
     app.use(bodyParser.urlencoded({

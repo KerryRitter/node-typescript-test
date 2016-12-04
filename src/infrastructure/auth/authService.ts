@@ -1,6 +1,6 @@
 import * as passport from "passport";
 import * as LocalStrategy from "passport-local";
-import { provide } from "../container";
+import { provide } from "../ioc";
 import "reflect-metadata";
 
 @provide(AuthService)

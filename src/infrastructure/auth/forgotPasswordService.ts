@@ -1,4 +1,4 @@
-import { provide } from "../container";
+import { provide } from "../ioc";
 import "reflect-metadata";
 
 @provide(ForgotPasswordService)
