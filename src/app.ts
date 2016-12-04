@@ -3,7 +3,10 @@ import { interfaces, Controller, InversifyExpressServer, TYPE } from "inversify-
 import { AppKernel } from "./kernel";
 import * as bodyParser from "body-parser";
 import * as path from "path";
+import { HelloProps } from "./static/scripts/components/homeComponent";
 
+const x = {} as HelloProps;
+console.log(x);
 // start the server
 const server = new InversifyExpressServer(AppKernel.Kernel);
 

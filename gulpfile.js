@@ -1,10 +1,13 @@
 /// <binding ProjectOpened="default" />
 
+var source = require('vinyl-source-stream');
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var tslint = require("gulp-tslint");
 var nodemon = require("gulp-nodemon");
 var livereload = require("gulp-livereload");
+var browserify = require("browserify");
+var tsify = require("tsify");
 
 gulp.task("copy:ejs", function() {
     gulp.src(["./src/views/**/*"]).pipe(gulp.dest("./dist/views/"));
@@ -13,7 +16,7 @@ gulp.task("copy:ejs", function() {
 const tsProject = ts.createProject("tsconfig.json");
 
 gulp.task("compile:ts", function () {
-  return gulp.src("./src/**/*.ts")
+  return gulp.src(["src/**/*.ts", "src/**/*.tsx"])
         .pipe(tslint({
             formatter: "verbose"
         }))
@@ -26,8 +29,8 @@ gulp.task("compile:ts", function () {
 
 gulp.task("watch", function () {
     livereload.listen();
-    gulp.watch("./src/**/*.ts", ["compile:ts"]);
-    gulp.watch("./src/views/**/*.ejs", ["copy:ejs"]);
+    gulp.watch("src/**/*.ts", ["compile:ts"]);
+    gulp.watch("src/views/**/*.ejs", ["copy:ejs"]);
 });
 
 gulp.task("serve", ["watch"], function () {

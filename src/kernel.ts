@@ -5,6 +5,9 @@ import * as _ from "lodash";
 import * as Controllers from "./controllers";
 import * as DataServices from "./data/services";
 
+import * as AuthServices from "./infrastructure/auth";
+import * as DataAccessServices from "./infrastructure/dataAccess";
+
 export class AppKernel {
     public static get Kernel(): Kernel {
         const kernel = new Kernel();
@@ -14,7 +17,10 @@ export class AppKernel {
         this.bindController(kernel, Controllers.HomeController, "HomeController");
 
         // Services
-        kernel.bind("PeopleService").to(DataServices.PeopleService);
+        kernel.bind("UsersService").to(DataServices.UsersService);
+        kernel.bind("AuthService").to(AuthServices.AuthService);
+        kernel.bind("LoginService").to(AuthServices.LoginService);
+        kernel.bind("ConnectionFactory").to(DataAccessServices.ConnectionFactory);
 
         return kernel;
     }
