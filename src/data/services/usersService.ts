@@ -11,15 +11,22 @@ export class UsersService {
     ) {
     }
 
-    public getAll(): any {
-        let users: User[];
+    public async getAll(): Promise<User[]> {
+        return new Promise<User[]>((resolve, reject) => {
+            resolve([
+                { email: "ritter@kerryritter.com", name: "Kerry Ritter" } as User
+            ]);
 
-        this._connectionFactory.connect((err, connection) => {
-            connection.query("", (error, rows, fields) => {
-                users = rows;
-            });
+            // this._connectionFactory.connect((err, connection) => {
+            //     connection.query("", (error, rows, fields) => {
+            //         if (error) {
+            //             reject(error);
+            //             return;
+            //         }
+                    
+            //         resolve(rows);
+            //     });
+            // });
         });
-
-        return users;
     }
 }

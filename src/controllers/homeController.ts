@@ -2,7 +2,7 @@ import * as express from "express";
 import { Controller, Get, TYPE } from "inversify-express-utils";
 import { provideController } from "../infrastructure/ioc";
 
-@provideController("HomeController")
+@provideController(HomeController)
 @Controller("/")
 export class HomeController {
     public constructor(
