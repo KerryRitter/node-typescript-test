@@ -1,14 +1,11 @@
 import "reflect-metadata";
-import { interfaces, Controller, InversifyExpressServer, TYPE } from "inversify-express-utils";
-import { AppKernel } from "./kernel";
+import { InversifyExpressServer } from "inversify-express-utils";
+import { container } from "./infrastructure/container";
 import * as bodyParser from "body-parser";
 import * as path from "path";
-import { HelloProps } from "./static/scripts/components/homeComponent";
+import * as AuthServices from "./infrastructure/auth";
 
-const x = {} as HelloProps;
-console.log(x);
-// start the server
-const server = new InversifyExpressServer(AppKernel.Kernel);
+const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
     app.use(bodyParser.urlencoded({
@@ -16,13 +13,13 @@ server.setConfig((app) => {
     }));
 
     app.use(bodyParser.json());
+
+    app.set("view engine", "ejs");
+    app.set("views", path.join(__dirname, "/../dist/views"));
+
+    AuthServices.AuthService.configure();
 });
 
-const app = server.build();
-
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/../dist/views"));
-
-app.listen(3000);
+server.build().listen(3000);
 
 console.log("Server started on port 3000 :)");

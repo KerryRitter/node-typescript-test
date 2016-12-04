@@ -1,14 +1,16 @@
 import { injectable, inject } from "inversify";
 import { ConnectionFactory } from "../../infrastructure/dataAccess";
 import { User } from "../models";
+import { provide } from "../../infrastructure/container";
+import "reflect-metadata";
 
-@injectable()
+@provide(UsersService)
 export class UsersService {
     public constructor(
         @inject("ConnectionFactory") private _connectionFactory: ConnectionFactory
     ) {
     }
-    
+
     public getAll(): any {
         let users: User[];
 

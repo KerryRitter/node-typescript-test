@@ -43,7 +43,14 @@
   version "6.0.45"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.45.tgz#c4842a9d653d767831e4ff495b6008cc0d579966"
 
-"@types/passport@^0.2.34":
+"@types/passport-local@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/@types/passport-local/-/passport-local-1.0.29.tgz#d27b8b64f74430296968cbfaedccb76adfa23b21"
+  dependencies:
+    "@types/express" "*"
+    "@types/passport" "*"
+
+"@types/passport@*", "@types/passport@^0.2.34":
   version "0.2.34"
   resolved "https://registry.yarnpkg.com/@types/passport/-/passport-0.2.34.tgz#791e8c9fbb16e5248b591ab805eea29fa91cff00"
   dependencies:
@@ -1723,9 +1730,9 @@ interpret@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
 
-inversify:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/inversify/-/inversify-2.0.1.tgz#0cb27673ccb7a096caa1c7ff9fa79db80be38686"
+inversify-binding-decorators@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/inversify-binding-decorators/-/inversify-binding-decorators-2.0.0.tgz#25af40b02ce2f20d2912d4668e6bffa601738054"
 
 inversify-express-utils:
   version "2.0.2"
@@ -1733,6 +1740,10 @@ inversify-express-utils:
   dependencies:
     express "^4.14.0"
     reflect-metadata "^0.1.8"
+
+inversify@^3.0.0-beta.3:
+  version "3.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/inversify/-/inversify-3.0.0-beta.3.tgz#7c008b48cb6586001be0b3f2b099fb07e1934cc6"
 
 ipaddr.js@1.1.1:
   version "1.1.1"
@@ -2640,6 +2651,12 @@ parseurl@~1.3.0, parseurl@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.1.tgz#c8ab8c9223ba34888aa64a297b28853bec18da56"
 
+passport-local@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
+  dependencies:
+    passport-strategy "1.x.x"
+
 passport-strategy@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
@@ -2980,7 +2997,7 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-reflect-metadata, reflect-metadata@^0.1.8:
+reflect-metadata@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.8.tgz#72426d570b60776e3688968bd5ab9537a15cecf6"
 

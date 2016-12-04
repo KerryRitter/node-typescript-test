@@ -1,2 +1,2 @@
 export { HomeController } from "./homeController";
-export { PeopleController } from "./peopleController";
+export { UsersController } from "./usersController";
