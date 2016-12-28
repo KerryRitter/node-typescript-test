@@ -1,30 +1,25 @@
 import "reflect-metadata";
-import { InversifyExpressServer } from "inversify-express-utils";
-import { kernel } from "./infrastructure/ioc";
 import * as bodyParser from "body-parser";
 import * as path from "path";
-import * as AuthServices from "./infrastructure/auth";
+import * as express from "express";
+import * as _ from "lodash";
 
-import "./data/services";
-import "./infrastructure/auth";
-import "./infrastructure/dataAccess";
-import "./controllers";
+import { HomeRouter } from "routers";
 
-const server = new InversifyExpressServer(kernel);
+const app = express();
 
-server.setConfig((app) => {
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-    app.use(bodyParser.json());
+app.use(bodyParser.json());
 
-    app.set("view engine", "ejs");
-    app.set("views", path.join(__dirname, "/../dist/views"));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/../dist/views"));
 
-    AuthServices.AuthService.configure();
+var x = new HomeRouter();
+app.use(x.routes);
+
+app.listen(3000, () => {
+    console.log("Listening on port 3000!");
 });
-
-server.build().listen(3000);
-
-console.log("Server started on port 3000 :)");

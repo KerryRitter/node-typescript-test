@@ -1,23 +1,27 @@
-
 {
     "compilerOptions": {
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "mapRoot": "./",
+        "sourceMap": false,
         "module": "commonjs",
+        "moduleResolution": "node",
         "target": "es6",
+        "inlineSources": true,
+        "removeComments": false,
+        "noImplicitAny": false,
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        },
         "lib": [
             "es6",
             "dom"
         ],
         "types": [
-            "inversify",
-            "inversify-express-utils",
             "reflect-metadata"
-        ],
-        "noImplicitAny": false,
-        "sourceMap": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "moduleResolution": "node",
-        "jsx": "react"
+        ]
     },
     "compileOnSave": false,
     "atom": {
