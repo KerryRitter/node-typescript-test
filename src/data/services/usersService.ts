@@ -1,4 +1,4 @@
-import { injectable, inject } from "inversify";
+import { inject } from "inversify";
 import { ConnectionFactory } from "../../infrastructure/dataAccess";
 import { User } from "../models";
 import { provide } from "../../infrastructure/ioc";

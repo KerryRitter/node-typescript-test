@@ -10,8 +10,8 @@ let fluentProvider = makeFluentProvideDecorator(kernel);
 
 let provideNamed = function(identifier, name) {
     return fluentProvider(identifier)
-              .whenTargetNamed(name)
-              .done();
+        .whenTargetNamed(name)
+        .done();
 };
 
 let provideController = function(controller) {

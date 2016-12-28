@@ -16,8 +16,7 @@
         "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "moduleResolution": "node",
-        "jsx": "react"
+        "moduleResolution": "node"
     },
     "compileOnSave": false,
     "atom": {

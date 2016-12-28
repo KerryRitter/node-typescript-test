@@ -11,6 +11,8 @@ export class HomeController {
 
     @Get("/")
     public index(req: express.Request, res: express.Response)   {
-        res.render("home/index");
+        res.render("home/index", {
+            message: new Date
+        });
     }
 }
